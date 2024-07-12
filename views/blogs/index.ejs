@@ -1,0 +1,23 @@
+<% layout("/layouts/boilerplate.ejs")%>
+    <h3>All Blogs</h3>
+    <!-- <form method="GET" action="/blogs/new">
+        <button>Create New Blog</button>
+    </form> -->
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+    <%for(let blog of allBlogs){%>
+        <a class="listing-link" href="/blogs/<%=blog._id%>">
+    <div class="card col" style="width: 18rem;">
+        <img src="<%=blog.image%>" class="card-img-top" alt="blog_image" style="height:20rem;">
+        <div class="card-img-overlay">Read full blog..</div>
+        <div class="card-body">
+          <p class="card-text">
+            <b><%=blog.title%></b>
+            <br>
+            <%=blog.author%>
+            <br>
+          </p>
+      </div>
+      </div>
+    </a>
+      <%}%>
+      </div>

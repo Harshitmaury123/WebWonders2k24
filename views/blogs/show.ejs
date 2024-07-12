@@ -1,0 +1,23 @@
+<% layout("/layouts/boilerplate.ejs")%>
+<div class="row">
+<div class="col-8 offset-2">
+     <h1>Blog Details:</h1>
+     </div>
+     <div class="card col-6 offset-3">
+      <img src="<%=blog.image%>" class="card-img-top" alt="blog_image">
+      <div class="card-body">
+        <p class="card-text">
+         <li><%=blog.title%></li>
+         <li><%=blog.blogs%></li>
+         <li><%=blog.author%></li>
+        </p>
+      </div>
+     </div>
+     <br>
+     <div class="btns">
+      <a class="col-1 offset-3 btn btn-dark" href="/blogs/<%=blog._id%>/edit">Edit</a>
+      <form method="POST" action="/blogs/<%=blog._id%>?_method=DELETE">
+         <button class="btn btn-dark offset-5 del-btn" >Delete</button>
+      </form>
+      </div>
+     </div>

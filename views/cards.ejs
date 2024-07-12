@@ -1,0 +1,96 @@
+<% layout("/layouts/boilerplate.ejs")%>
+    <script>
+        function myFunction(button) {
+            var card = button.parentElement;
+            var dots = card.querySelector(".dots");
+            var moreText = card.querySelector(".more");
+            var btnText = card.querySelector(".myBtn");
+
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btnText.innerHTML = "Read more";
+                moreText.style.display = "none";
+            } else {
+                dots.style.display = "none";
+                btnText.innerHTML = "Read less";
+                moreText.style.display = "inline";
+            }
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            background-color: #08AEEA;
+            background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .card {
+            width: 900px;
+            height: 1000px;
+            background-color: white;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            margin: 20px;
+            box-shadow:blanchedalmond;
+        }
+        .card img {
+            height: 55%;
+            width: 100%;
+            border-radius: 10px;
+        }
+        .card img:hover{    
+            translate:5px 5px;
+        }
+        .card p {
+            font-size: 1.1em;
+        }
+        .more { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <img src="https://assets.weforum.org/article/image/responsive_large_webp_j32MJbWoleyP4d-pfnUAe2t00lbw4LMtKtvJK-5ms44.webp" />
+            <h2>Climate Awareness Campaigns</h2>
+            <p>Our Global Awareness campaign, targeting a worldwide audience, is committed to identifying and supporting creative solutions to produce a sustainable world for future generations. <span class="dots">...</span><span class="more">WBI distributes reliable, accurate, and trusted information via its digital repository, website, social media, newsletters, in-person presentations, and other outreach channels. The Global Awareness focus areas include wildlife and environment, human happiness, companion animals, climate change and biodiversity, animal use in laboratories, and land use and food systems.</span></p>
+            <button class="myBtn" onclick="myFunction(this)">Read more</button>
+        </div>
+        <div class="card">
+            <img src="https://assets.weforum.org/editor/OcXemtiJRHDdFwD4tRAU7u_cmtJ-fbnuULYPeyisiu4.png" />
+            <h2>How much the CO2 concentration increased every year.</h2>
+            <p>Each year, human activities release more carbon dioxide into the atmosphere than natural processes can remove, causing the amount of carbon dioxide in the atmosphere to increase. <span class="dots">...</span><span class="more">The global average carbon dioxide set a new record high in 2023: 419.3 parts per million. The annual rate of increase in atmospheric carbon dioxide over the past 60 years is about 100 times faster than previous natural increases, such as those that occurred at the end of the last ice age 11,000-17,000 years ago.</span></p>
+            <button class="myBtn" onclick="myFunction(this)">Read more</button>
+        </div>
+        <div class="card">
+            <img src="https://assets.weforum.org/editor/xN3ebMyP8gYWyTusOxqfmXTm_fv7cIr2l77-fFDMS68.png"/>
+            <h2>How long does C02 stay in atmosphere</h2>
+            <p>“The climatic impacts of releasing fossil fuel CO2 to the atmosphere will last longer than Stonehenge,” Archer writes. “Longer than time capsules, longer than nuclear waste, far longer than the age of human civilization so far.” <span class="dots">...</span><span class="more">Unlike some other atmospheric gases, CO2 mostly does not break down into smaller molecules while in the atmosphere. Methane, for instance—another important greenhouse gas—reacts with oxygen to turn into CO2 and water within a matter of years, and that process can be observed and measured. But CO2 molecules typically linger until something absorbs them from the air.2 Some are quickly taken up by the ocean, plants, and soil.3 Other atmospheric carbon sticks around for generations.</span></p>
+            <button class="myBtn" onclick="myFunction(this)">Read more</button>     
+        </div>
+        <div class="card">
+            <img style="height:70%" src="https://climate.mit.edu/sites/default/files/inline-images/Greenhouse%20Gases%20Infographic_1.png"/>
+            <h2>How we know greenhouse gases can change the climate</h2>
+            <p>Greenhouse gases are gases—like carbon dioxide (CO2), methane, and nitrous oxide—that keep the Earth warmer than it would be without them. The reason they warm the Earth has to do with the way energy enters and leaves our atmosphere. <span class="dots">...</span><span class="more">When energy from the sun first reaches us, it does so mainly as light. But when that same energy leaves the Earth, it does so as infrared radiation, which we experience as heat. Greenhouse gases reflect infrared radiation, so some of the heat leaving the Earth bounces off the greenhouse gases in our atmosphere and comes back to the Earth's surface. This is called the “greenhouse effect,” in a comparison to the heat-trapping glass on a greenhouse.
+                The greenhouse effect is not a bad thing. Without it, our planet would be too cold for life as we know it. But if the amount of greenhouse gases in the atmosphere changes, the strength of the greenhouse effect changes too. This is the cause of human-made climate change: by adding greenhouse gases to the atmosphere, we are trapping more heat, and the entire planet gets warmer.</span></p>
+            <button class="myBtn" onclick="myFunction(this)">Read more</button>
+        </div>
+       <div class="card">
+        <img src="https://assets.weforum.org/editor/UrFYyXbYOXM-7XZGRvaHQkQu9ZX_HNu9omyb8Xtpapw.png"/>
+        <h2>How temperatures have risen over time around the world</h2>
+        <p>According to an ongoing temperature analysis led by scientists at NASA’s Goddard Institute for Space Studies (GISS), the average global temperature on Earth has increased by at least 1.1° Celsius (1.9° Fahrenheit) since 1880. The majority of the warming has occurred since 1975, at a rate of roughly 0.15 to 0.20°C per decade.<span class="dots">...</span><span class="more">The maps above show temperature anomalies in five-year increments since 1880. (Click on the arrow to run the animation.) These are not absolute temperatures, but changes from the norm for each area. The data reflect how much warmer or cooler each region was compared to a base period of 1951-1980. (The global mean surface air temperature for that period was 14°C (57°F), with an uncertainty of several tenths of a degree.).As the maps show, global warming does not mean temperatures rise everywhere at every time by same rate. Temperatures might rise 5 degrees in one region and drop 2 degrees in another. For instance, exceptionally cold winters in one place might be balanced by extremely warm winters in another part of the world. Generally, warming is greater over land than over the oceans because water is slower to absorb and release heat (thermal inertia). Warming may also differ substantially within specific land masses and ocean basins.</span></p>
+        <button class="myBtn" onclick="myFunction(this)">Read more</button>
+       </div>
+    </div>
+</body>
