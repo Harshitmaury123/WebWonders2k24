@@ -2,10 +2,10 @@
 <div class="row mt-3">
     <div class="col-8 offset-2">
         <br> </br>
-    <h3>Create a new Blog</h3>
+    <h3 style="color:white !important;">Create a new Blog:</h3>
     <form method="POST" action="/blogs" novalidate class="needs-validation">
         <div class="mb-3">
-            <label for="title" class="form-label">Title:</label>
+            <label style="color:#2aeb10e8 !important;" for="title" class="form-label">Title:</label>
             <br>
             <input name="blog[title]" placeholder="enter title" class="form-control"/ required>
             <div class="invalid-feedback">Please enter a title!</div>
@@ -13,23 +13,22 @@
         </div>
         <div class="invalid-feedback">Please enter a title!</div>
         <div class="mb-3">
-            <label for="blog" class="form-label">Blog Details:</label>
+            <label style="color:#2aeb10e8 !important;" for="blog" class="form-label">Blog Details:</label>
             <br>
             <textarea class="form-control" name="blog[blogs]" placeholder="Type your blog content" required></textarea>
             <div class="invalid-feedback">Please enter a short description!</div>
         </div>
         <div class="mb-3">
-          <label for="author" class="form-label">Author:</label>
+          <label  style="color:#2aeb10e8 !important;" for="author" class="form-label">Author:</label>
           <br>
           <input class="form-control" name="blog[author]" placeholder="type your name" type="text" required/>
           <div class="invalid-feedback">Please enter your name!</div>    
          </div>
         <div class="mb-3">
-          <label for="image" class="form-label">Image Link:</label>
+          <label  style="color:#2aeb10e8 !important;" for="image" class="form-label">Image Link:</label>
           <br>
           <input class="form-control" name="blog[image]"  placeholder="Enter image URL" type="text" required/>
         </div>
-        <br></br>
         <button class="edit-btn btn-dark mt-3">Add</button>
     </form>
     </div>

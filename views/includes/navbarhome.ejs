@@ -1,6 +1,45 @@
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+<div>
+  <nav class="navbar-opt  navbar-expand-md bg-body-light border-bottom sticky-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/"><i class="fa-solid fa-seedling"></i></a>
+     <div class="company-name">
+      <span style="color: #2aeb10e8 !important;">G</span>
+            <span style="color:#2aeb10e8 !important;">r</span>
+            <span style="color:#2aeb10e8 !important;">e</span>
+            <span style="color:#2aeb10e8 !important;">e</span>
+            <span style="color:#2aeb10e8 !important;;">n</span>
+            <span style="color:white !important;">G</span>
+            <span style="color:white !important;">u</span>
+            <span style="color:white !important;">a</span>
+            <span style="color:white !important;">r</span>
+            <span style="color:white !important;">d</span>
+            <span style="color:white !important;">i</span>
+            <span style="color:white !important;">a</span>
+            <span style="color:white !important;">n</span>
+            <span style="color:white !important;">s</span>
+            <h5 style="margin-left:1.5rem;color:grey;font-size:0.7rem;">SUSTAINABILITY THEME</h5>
+     </div>
+     <div>
+      <i class="fa-solid fa-envelope"></i>
+      <span style="color:grey">Email:</span>
+      <p style="color:grey;">info@gmail.com</p>
+     </div>
+     <div>
+      <i class="fa-solid fa-location-dot"></i>
+      <span style="color:grey">Location:</span>
+      <p style="color:grey;">SVNIT,Surat,India</p>
+     </div>
+     <div>
+      <i class="fa-solid fa-phone"></i>
+      <span style="color:grey">Call us:</span>
+      <p style="color:grey;">7080334499</p>
+     </div>
+    </div>
+  </nav>
+</div>
+<div>
+<nav class="navbar1 navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><image class="logo"style="height:40px; background-color:  rgb(241, 150, 32);" src="https://tse3.mm.bing.net/th?id=OIP.abdxP0HmrPOfcTzXIP2m3AHaHa&pid=Api&P=0&h=180"></image></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -14,13 +53,50 @@
         </div>
         <div class="navbar-nav ms-auto">
           <%if(!currUser){%>
-            <a class="nav-link"  href="/signup">SignUp</a>
-            <a class="nav-link" href="/login">Login</a>
-            <%}%>
-            <%if(currUser){%>
-            <a class="nav-link" href="/logout">Logout</a>
-            <%}%>
+            <li class="profile-dropdown-list-item">
+              <a class="nav-link"  href="/signup">SignUp</a>
+            </li>
+            <li class="profile-dropdown-list-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+             <%}%>
+             <%if(currUser){%>
+          <div class="profile-dropdown">
+            <div class="profile-dropdown-btn" onclick="toggle()">
+              <div class="profile-img">
+                <i class="fa-solid fa-circle"></i>
+              </div>
+              <span>
+                   <%=currUser.username%>
+                <i class="fa-solid fa-angle-down"></i>
+              </span>
+            </div>
+            <ul class="profile-dropdown-list">
+            <li class="profile-dropdown-list-item">
+              <a href="#">
+                <i class="fa-solid fa-user"></i>Edit Profile
+              </a>
+            </li>
+            <li class="profile-dropdown-list-item">
+              <a href="#">
+                <i class="fa-solid fa-sliders"></i>Settings
+              </a>
+            </li>
+
+               <li class="profile-dropdown-list-item">
+                <a  href="/logout">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>LogOut
+                </a>
+              </li>
+            </ul>
+          </div>
+        <%}%>
+      </div>
+      </div>
       </div>
       </div>
     </div>
+    <script src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </nav>
+  </div>

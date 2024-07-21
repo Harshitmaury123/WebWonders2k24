@@ -1,119 +1,210 @@
-<% layout("/layouts/boilerplate2.ejs")%>
-<style>
-    .container
-{
-  max-width: 1000px;
-  margin: 100px auto;
-  display: flex;
-  flex-wrap:wrap;
-  justify-content: space-between;
-}
-.card
-{
-  position: relative;
-  margin: 30px 10px;
-  width: 300px;
-  height: 450px;
-  background: #fff;
-  transform-style: preserve-3d;
-  transform: perspective(2000px);
-  box-shadow: inset 300px 0 50px rgba(0,0,0,.5), 0 20px 20px rgba(0,0,0,.5);
-  transition: 1s;
-}
-.card:hover
-{
-  z-index: 10000;
-  transform: perspective(2000px) rotate(-10deg);
-  box-shadow: inset 20px 0 50px rgba(0,0,0,.5), 0 10px 100px rgba(0,0,0,.5);
-}
-
-.card .Box
-{
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border: 1px solid #000;
-  box-sizing: border-box;
-  position: relative;
-  transform-origin: left;
-  z-index: 1;
-  transition: 1s cubic-bezier(.15,1.7,.84,.58);
-  background: #111;
-}
-.card .Box img
-{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.card:hover .Box
-{
-  transform: rotateY(-135deg);
-}
-.card .details
-{
-  position: absolute;
-  top: 0;
-  left: 0;
-  box-sizing: border-box;
-  padding: 20px;
-  z-index: -1;
-}
-body{
-    background-image:url("https://wallpaperaccess.com/full/8779742.jpg");
-    background-size: contain;
-}
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage</title>
+    <link rel="stylesheet" href="/css/stylehome.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 <body>
-        <div class="word" style="font-size: 2em; font-weight: bold;">
-            <span style="font-size: 80px; color: #FF5733;">G</span>
-            <span style="color: #FF8D1A;">r</span>
-            <span style="color: #FFC300;">e</span>
-            <span style="color: #DAF7A6;">e</span>
-            <span style="color: #33FF57;">n</span>
-            <span style="color: #1AFFD5; font-size: 60px;">G</span>
-            <span style="color: #3380FF;">u</span>
-            <span style="color: #DA33FF;">a</span>
-            <span style="color: #FF33A8;">r</span>
-            <span style="color: #FF5733;">d</span>
-            <span style="color: #FF8D1A;">i</span>
-            <span style="color: #FFC300;">a</span>
-            <span style="color: #DAF7A6;">n</span>
-            <span style="color: #33FF57;">s</span>
-        </div>
-    <br>
-    <br>
-    <div class="container">
-        <div class="card">
-          <div class="Box">
-            <img src="https://tse4.mm.bing.net/th?id=OIP.Rt7S-NNFc6T8x8dX8xZxxgHaD3&pid=Api&P=0&h=180">
-          </div>
-          <div class="details">
-            <h2>Environment</h2>
-            <p>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="Box">
-            <img src="https://tse1.mm.bing.net/th?id=OIP.48RXQuPOSaQ9ieTZem2GSAHaFY&pid=Api&P=0&h=180">
-          </div>
-          <div class="details">
-            <h2>Social</h2>
-            <p>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="Box">
-            <img src="https://tse1.mm.bing.net/th?id=OIP.C7_v8tiMi_RRPlVlgrg-YgHaE8&pid=Api&P=0&h=180">
-          </div>
-          <div class="details">
-            <h2>Economic</h2>
-            <p>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-          </div>
-        </div>
-      </div>    
-</body>
+  <div id="cursor"></div>
+    <div id="cursor-blur"></div>
 
+    <nav class="navbar-opt  navbar-expand-md bg-body-light border-bottom sticky-top">
+      <div class="container-fluid">
+       <div class="company-name">
+        <span style="color: #2aeb10e8 !important;">G</span>
+              <span style="color:#2aeb10e8 !important;">r</span>
+              <span style="color:#2aeb10e8 !important;">e</span>
+              <span style="color:#2aeb10e8 !important;">e</span>
+              <span style="color:#2aeb10e8 !important;;">n</span>
+              <span style="color:white !important;">G</span>
+              <span style="color:white !important;">u</span>
+              <span style="color:white !important;">a</span>
+              <span style="color:white !important;">r</span>
+              <span style="color:white !important;">d</span>
+              <span style="color:white !important;">i</span>
+              <span style="color:white !important;">a</span>
+              <span style="color:white !important;">n</span>
+              <span style="color:white !important;">s</span>
+              <h5 style="margin-left:1.5rem;color:grey;font-size:0.7rem;">SUSTAINABILITY THEME</h5>
+       </div>
+       <div>
+        <i class="fa-solid fa-envelope"></i>
+        <span style="color:grey">Email:</span>
+        <p style="color:grey;">info@gmail.com</p>
+       </div>
+       <div>
+        <i class="fa-solid fa-location-dot"></i>
+        <span style="color:grey">Location:</span>
+        <p style="color:grey;">SVNIT,Surat,India</p>
+       </div>
+       <div>
+        <i class="fa-solid fa-phone"></i>
+        <span style="color:grey">Call us:</span>
+        <p style="color:grey;">7080334499</p>
+       </div>
+      </div>
+    </nav>
+  </div>
+  <div>
+  <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"><image class="logo"style="height:40px; background-color:  rgb(241, 150, 32);" src="https://tse3.mm.bing.net/th?id=OIP.abdxP0HmrPOfcTzXIP2m3AHaHa&pid=Api&P=0&h=180"></image></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="navbar-nav">
+              <a class="nav-link" href="/blogs">Blogs</a>
+              <a class="nav-link"  href="/fot">F.O.T.</a>
+              <a class="nav-link"  href="/communityProjects">Community Projects</a>
+          </div>
+          <div class="navbar-nav ms-auto">
+            <%if(!currUser){%>
+              <li class="profile-dropdown-list-item">
+                <a class="nav-link"  href="/signup">SignUp</a>
+              </li>
+              <li class="profile-dropdown-list-item">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+               <%}%>
+               <%if(currUser){%>
+            <div class="profile-dropdown">
+              <div class="profile-dropdown-btn" onclick="toggle()">
+                <div class="profile-img">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+                <span>
+                     <%=currUser.username%>
+                  <i class="fa-solid fa-angle-down"></i>
+                </span>
+              </div>
+              <ul class="profile-dropdown-list">
+              <li class="profile-dropdown-list-item">
+                <a href="#">
+                  <i class="fa-solid fa-user"></i>Edit Profile
+                </a>
+              </li>
+              <li class="profile-dropdown-list-item">
+                <a href="#">
+                  <i class="fa-solid fa-sliders"></i>Settings
+                </a>
+              </li>
+              <hr style=" border-top: 1px dashed rgba(78, 255, 47, 0.932);"/>
+                 <li class="profile-dropdown-list-item">
+                  <a  href="/logout">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>LogOut
+                  </a>
+                </li>
+              </ul>
+            </div>
+          <%}%>
+        </div>
+        </div>
+        </div>
+        </div>
+      </div>
+    </nav>
+  
+   
+    <video autoplay loop muted src="\css\green.mp4"></video>
+
+    <div id="main">
+      
+        <div id="page1"></div>
+
+        <div id="page2">
+            <div id="scroller">
+                <div id="scroller-in-1">
+                    <h4>The Earth</h4>
+                    <h4>is a great</h4>
+                    <h4>place and worth</h4>
+                    <h4>fighting</h4>
+                    <h4>for!</h4>
+                </div>
+       
+                <div id="about-us">
+                  
+                    <img src="https://tse2.mm.bing.net/th?id=OIP.IEMJ20iMm4q6eWyLL5Y7ggHaFE&pid=Api&P=0&h=180" alt="environment">
+                    <div id="about-us-in">
+                        <h3>ABOUT US</h3>
+                        <p>Welcome to our sustainability initiative, a passion-driven project committed to
+                           fostering a greener,<p> more sustainable future. 
+                             Our team, consisting of four dedicated members Deepak,</p> <p>  Harshit, Vedang, and Divyansh – is united  by a shared vision of environmental </p><p>stewardship and community impact.</p>
+                    </div>
+                    <img src="https://tse3.mm.bing.net/th?id=OIP.X4H2442cVg6HBiaN5pqDoAAAAA&pid=Api&P=0&h=180" alt="">
+                </div>
+                <div id="card-container">
+                    <div class="card" id="card1">
+                        <div class="overlay">
+                            <h4>Harshit Maurya</h4>
+                            <p>Passionate about sustainability, actively contributing to eco-friendly practices for a greener future.</p>
+                        </div>
+                    </div>
+                    <div class="card" id="card2">
+                        <div class="overlay">
+                            <h4>Divyansh Kumar</h4>
+                            <p>Passionate about sustainability, actively contributing to eco-friendly practices for a greener future.</p>
+                        </div>
+                    </div>
+                    <div class="card" id="card3">
+                        <div class="overlay">
+                            <h4>Deepak Kalal</h4>
+                            <p>Passionate about sustainability, actively contributing to eco-friendly practices for a greener future.</p>
+                        </div>
+                    </div>
+                    <div class="card" id="card4">
+                        <div class="overlay">
+                            <h4>Vedang Dubey</h4>
+                            <p>Passionate about sustainability, actively contributing to eco-friendly practices for a greener future.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="green-div">
+                    <img
+                      src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg"
+                      alt=""
+                    />
+                    <h4>
+                      SIGN UP FOR LATEST UPDATE STRAIGHT TO YOUR INBOX
+                    </h4>
+                    <img
+                      src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg"
+                      alt=""
+                    />
+            </div>
+        </div>
+        <div id="page3">
+            
+  
+            <p>
+                Living sustainably means understanding
+                that we are all part of a global ecosystem,
+                where every resource we consume impacts
+                not only our immediate environment but
+                the future health of our planet.
+            </p>
+            <img
+              id="colon1"
+              src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-left.svg"
+              alt=""
+            />
+            <img
+              id="colon2"
+              src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-right.svg"
+              alt=""
+            />
+          </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/js/scripthome.js"></script>
+        <script src="/js/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </div>
+</body>
+</html>

@@ -155,6 +155,14 @@ app.get("/climateawareness",(req,res)=>{
     res.render("cards.ejs");
 });
 
+app.get("/faq",(req,res)=>{
+    res.render("./includes/faq.ejs");
+});
+
+app.get("/fot",(req,res)=>{
+    res.render("./blogs/vedang.ejs");
+});
+
 app.all("*",(req,res,next)=>{
     next(new ExpressError(404,"Route not found!"));
 });

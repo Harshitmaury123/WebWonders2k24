@@ -1,6 +1,7 @@
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+
+<nav  style="z-index:99; background: linear-gradient(270deg,#64da25 15.41%,#23b5e1 100.25%);" class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/"><i class="fa-solid fa-seedling"></i></a>
+      <a class="navbar-brand" href="/"><image class="logo"style="height:40px; background-color:  rgb(241, 150, 32);" src="https://tse3.mm.bing.net/th?id=OIP.abdxP0HmrPOfcTzXIP2m3AHaHa&pid=Api&P=0&h=180"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -13,13 +14,46 @@
         </div>
         <div class="navbar-nav ms-auto">
           <%if(!currUser){%>
-          <a class="nav-link"  href="/signup">SignUp</a>
-          <a class="nav-link" href="/login">Login</a>
-          <%}%>
-          <%if(currUser){%>
-          <a class="nav-link" href="/logout">Logout</a>
-          <%}%>
+            <li class="profile-dropdown-list-item">
+              <a class="nav-link"  href="/signup">SignUp</a>
+            </li>
+            <li class="profile-dropdown-list-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+             <%}%>
+             <%if(currUser){%>
+          <div class="profile-dropdown">
+            <div class="profile-dropdown-btn" onclick="toggle()">
+              <div class="profile-img">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <span style="color:white">
+                   <%=currUser.username%>
+                <i class="fa-solid fa-angle-down"></i>
+              </span>
+            </div>
+            <ul class="profile-dropdown-list">
+            <li class="profile-dropdown-list-item">
+              <a style="color:white;" href="#">
+                <i class="fa-solid fa-user"></i>Edit Profile
+              </a>
+            </li>
+            <li class="profile-dropdown-list-item">
+              <a style="color:white;" href="#">
+                <i class="fa-solid fa-sliders"></i>Settings
+              </a>
+            </li>
+          <hr style=" border-top: 1px dashed rgba(78, 255, 47, 0.932);"/>
+               <li class="profile-dropdown-list-item">
+                <a style="color:white;" href="/logout">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>LogOut
+                </a>
+              </li>
+            </ul>
+          </div>
+        <%}%>
       </div>
       </div>
     </div>
   </nav>
+  <script src="/js/script.js"></script>

@@ -1,0 +1,167 @@
+<% layout("/layouts/boilerplate.ejs")%>
+<style>
+
+  #bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+  }
+  
+  #nav {
+    height: 150px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 150px;
+    gap: 95px;
+    position: fixed;
+    justify-content: flex-start;
+    z-index: 99;
+  }
+  #nav img {
+    height: 200px;
+  }
+  #nav h4 {
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  #main {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.96); /* Add some transparency to make the text more readable */
+    padding: 150px 50px 50px 50px;
+    overflow: auto;
+    height: 100%;
+  }
+  #faq-section {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  #faq-section h2 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    text-align: center;
+    background: linear-gradient(270deg,#64da25 30.41%,#23b5e1 100.25%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .faq-item {
+    margin-bottom: 20px;
+  }
+  .faq-question {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    background: linear-gradient(270deg,#64da25 50.41%,#23b5e1 90.25%);
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .faq-answer {
+    display: none;
+    padding: 15px 0px;
+    padding-left:10px;
+    font-size: 18px;
+    line-height: 1.6;
+    color:white;
+  }
+  .faq-answer p {
+    margin: 0;
+  }
+  
+  #footer {
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+  }
+  #footer p {
+    color:  #91f480ef;
+    font-size: 16px;
+  }
+  
+</style>
+    <div id="main">
+      <div id="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <button class="faq-question">What is sustainability?</button>
+          <div class="faq-answer">
+            <p>
+              Sustainability refers to meeting our own needs without
+              compromising the ability of future generations to meet their own
+              needs. It encompasses environmental, economic, and social
+              dimensions.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Why is sustainability important?</button>
+          <div class="faq-answer">
+            <p>
+              Sustainability is crucial for maintaining the health of our planet
+              and ensuring the well-being of future generations. It helps to
+              preserve natural resources, reduce pollution, and combat climate
+              change.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            How can individuals contribute to sustainability?
+          </button>
+          <div class="faq-answer">
+            <p>
+              Individuals can contribute by adopting eco-friendly practices such
+              as reducing waste, recycling, conserving energy, using sustainable
+              products, and supporting green initiatives.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            What are some examples of sustainable practices?
+          </button>
+          <div class="faq-answer">
+            <p>
+              Examples include using renewable energy sources, reducing water
+              usage, supporting sustainable agriculture, using public
+              transportation, and minimizing single-use plastics.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What is renewable energy?</button>
+          <div class="faq-answer">
+            <p>
+              Renewable energy is energy from sources that are naturally
+              replenishing such as solar, wind, hydro, and geothermal power.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            How can businesses implement sustainability?
+          </button>
+          <div class="faq-answer">
+            <p>
+              Businesses can implement sustainability by adopting eco-friendly
+              practices such as reducing waste, conserving energy, sourcing
+              sustainable materials, and supporting green initiatives.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <p>&copy; 2024 Sustainability Initiative. All rights reserved.</p>
+    </div>
+    <script src="/js/scriptfaq.js"></script>
+</html>
