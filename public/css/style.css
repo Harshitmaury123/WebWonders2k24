@@ -2,8 +2,12 @@
     background-color: pink;
 
 } */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
  *{
-    font-family: system-ui, Arial, sans-serif;
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
  }
 .navbar{
     display: flex;
@@ -16,6 +20,7 @@
     width: 100%;
     z-index:1000;
     top: 0;
+    font-size:20px;
 }
 .navbar-opt{
     height:5rem;
@@ -23,6 +28,7 @@
     background-color:black !important;
     justify-content: space-evenly;
     align-items: center;
+    font-size: 20px;
 }
 .container-fluid{
     display:flex;
@@ -64,7 +70,7 @@ color:#2aeb10e8 !important;
 }
 .nav-link{
     color:black !important;
-    font-size:17a                           px !important;
+    font-size:19px !important;
     padding-left:25px !important;
     font-weight:500 !important;
 } 
