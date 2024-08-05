@@ -2,7 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "montserrat";
+    font-family: system-ui, Arial, sans-serif;
+    font-weight:500;
     color: #fff;
 }
 
@@ -11,7 +12,6 @@ html,body{
     width: 100%;
     /* perspective: 800px; */
 }
-
 
 
 
@@ -199,7 +199,7 @@ transform: translateX(-100%);
   }
 
   #card4{
-    background-image: url(http://starsunfolded.com/wp-content/uploads/2017/11/Deepak-Kalal.jpg);
+    background-image: url();
   }
 
 

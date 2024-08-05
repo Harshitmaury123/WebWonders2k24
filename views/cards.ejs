@@ -16,24 +16,73 @@
                 moreText.style.display = "inline";
             }
         }
+        // script.js
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Custom cursor effect
+    const cursor = document.getElementById('cursor');
+    const cursorBlur = document.getElementById('cursor-blur');
+
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.top = `${e.clientY}px`;
+        cursor.style.left = `${e.clientX}px`;
+        cursorBlur.style.top = `${e.clientY}px`;
+        cursorBlur.style.left = `${e.clientX}px`;
+    });
+
+    // Smooth scrolling to sections
+    const navLinks = document.querySelectorAll('#nav h4');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const targetId = e.target.innerText.toLowerCase().replace(' ', '-');
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+});
     </script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+#cursor,
+#cursor-blur {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out;
+    z-index: 1000;
+}
+
+#cursor-blur {
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+}
+
+video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+p,span{
+    font-weight:400 !important;
+}
         .container {
             width: 100%;
             height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
+            padding-left:60px;      
         }
         .card {
-            width: 900px;
-            height: 1000px;
+            width: 900px !important;
+            height: 1000px !important;
             background-color: white;
             border-radius: 20px;
             display: flex;
@@ -55,6 +104,10 @@
     </style>
 </head>
 <body>
+    <div id="cursor"></div>
+    <div id="cursor-blur"></div>
+    
+    <video autoplay loop muted src="https://cdn.pixabay.com/video/2024/06/22/217684_tiny.mp4"></video>
     <div class="container">
         <div class="card">
             <img src="https://assets.weforum.org/article/image/responsive_large_webp_j32MJbWoleyP4d-pfnUAe2t00lbw4LMtKtvJK-5ms44.webp" />

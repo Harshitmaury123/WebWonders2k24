@@ -1,0 +1,228 @@
+<%=layout("/layouts/boilerplate.ejs")%>
+<style>
+#cursor,
+#cursor-blur {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out;
+    z-index: 1000;
+}
+#cursor-blur {
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+}
+video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+#main {
+    position: relative;
+    z-index: 1;
+    margin-top: 70px;
+}
+#page1,
+#page2,
+#page3 {
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 20px;
+    border-radius: 10px;
+}
+#about-us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 40px 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#about-us img {
+    width: 80%;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#about-us-in {
+    max-width: 800px;
+    padding: 20px;
+}
+
+#about-us-in h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 2em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+#about-us-in p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1.2em;
+    color: #34495e;
+    line-height: 1.6;
+}
+
+#green-div {
+    text-align: center;
+    margin: 20px 0;
+    background-color: #e0f7e0;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#green-div h4 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.topic-section {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    margin: 20px 0;
+    cursor: pointer;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.topic-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.topic-section p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1.2em;
+    width: 70%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.topic-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+#food-sustainability {
+    background-image: url('https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production+Library/27-04-2022-UNDP-Belize.jpg/image1170x530cropped.jpg');
+}
+
+#scroller {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#scroller-in-1 {
+    text-align: center;
+    font-size: 1.2em;
+    background-color: #e0f7e0;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 100%;
+}
+
+#scroller-in-1 h4 {
+    margin: 10px 0;
+}
+</style>
+
+<div id="cursor"></div>
+<div id="cursor-blur"></div>
+
+<video autoplay loop muted src="https://cdn.pixabay.com/video/2024/06/22/217684_tiny.mp4"></video>
+
+<div id="main">
+    <div id="page1">
+        <h1 style="text-align: center;">Small solutions, big impacts: 5 community-based projects tackling climate change</h1>
+    </div>
+
+    <!-- New sections for Food Sustainability, Sustainable Tourism, and Ocean Conservation -->
+    <div class="topic-section" id="food-sustainability">
+            <h2>Indigeneous Women solar engineers bringing light to rural Belize</h2>
+            <p>For people living in cities is sometimes hard to believe that in 2022 there are still communities that don’t have electricity, but more than 500 million people worldwide don’t have access to this kind of service that many consider ‘basic’.
+                This is the reality for people in the District of Toledo, in Belize, where several rural villages lie far away from the national electricity grid making it hard – and costly – to electrify their communities.            
+                However, thanks to a partnership funded by the GEF’s Small Grants Program (SGP), three Mayan women solar engineers are installing solar energy systems and contributing to sustainable development in small indigenous communities in Southern Belize.</p>
+    </div>
+
+    <div class="topic-section" id="sustainable-tourism" style="background-image: url(https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production+Library/27-04-2022-Unsplash-turtle.jpg/image1170x530cropped.jpg);">
+        <h2>Turning Barbados into a champion of Hawksbill turtles' conservation</h2>
+        <p>Did you know that extreme temperatures during heatwaves fuelled by climate change are literally cooking baby turtles in their nest.
+            Hawksbill sea turtles are classified by the International Union for Conservation of Nature as critically endangered as their population is decreasing around the world.  
+            For ages, they have been hunted for their eggs and meat and now they are also at risk from coastal development and our changing climate, among other threats.        
+            But a small grant 20 years ago turned into a big opportunity for this species to thrive in the Caribbean Island of Barbados.        
+            The Barbados Sea Turtle Project, based at the University of the West Indies’ Campus, is the home of the regional Marine Turtle Tagging Centre and the wider Caribbean Sea Turtle Conservation Network.          
+            Tagging turtles helps scientists and conservationists to track their movements, calculate their growth rates, survival and reproductive output.</p>
+    </div>
+    <div class="topic-section" id="ocean-conservation" style="background-image: url(https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production+Library/27-04-2022-UNDP-Venezuela.jpg/image1170x530cropped.jpg);">
+        <h2>Helping Venezuelan indigenous families mitigate the degradation of the Amazon Forest</h2>
+        <p>Puerto Ayacucho is the capital and largest city of the State of Amazonas in the south of Venezuela, its inhabitants include a number of local indigenous tribes, including the Yanomami, the Panare, the Bari, Piaroa and Guajibo (also known as Jibis).
+            Many of these populations have been displaced from their lands due to the socioeconomic crisis in the country, as well as the presence of armed groups and illegal mining activities.      
+            The project Amazonas Originaria is currently training a group of indigenous displaced families to sustainably use and care for the tropical forests in the vicinity of Puerto Ayacucho. They are learning how to manage crops of cocoa, cupuaçu, manaca and túpiro (all amazon native plants) as well as how to transform their fruits into pulp, chocolates, baskets and other products.</p>
+    </div>
+    <div class="topic-section" id="ocean-conservation" style="background-image: url(https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production+Library/27-04-2022-UNDP-Costa-Rica.jpg/image1170x530cropped.jpg);">
+        <h2> Exchanging ideas to make tourism more eco-friendly and sustainable</h2>
+        <p>Clearly, climate change and environmental degradation can´t be tackled by a single community, instead, unity is strength when we talk about exchanging ideas that have already proven successful.
+            The project Dialogue of Latin American Knowledge around Community Tourism has brought together community tourism ventures from Costa Rica, Panama, Colombia and Mexico to exchange experiences and good practices.      
+            Tourism is the backbone of some economies and the source of livelihood for many people, especially those living in developing countries, but if mismanaged, it often puts pressure on natural resources through overconsumption, induces stress on local land use, as well as increases pollution and natural habitat loss.         
+            Community tourism, on the other hand, is an economic alternative that allows local communities to generate complementary income to their main productive activities and at the same time protect and value the natural and cultural wealth of their territories.</p>
+    </div>
+    <div class="topic-section" id="ocean-conservation" style="background-image: url(https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production+Library/27-04-2022-Unsplash-Colombia.jpg/image1170x530cropped.jpg);">
+        <h2> Saving the water-rich Colombian Paramos, with a gender twist</h2>
+          <p>Colombia's paramos, tundra ecosystems in the Andes mountains that are above the forest line but below the snowline, occupy just 1.7 per cent of the national territory, yet they produce 85 per cent of its drinking water.
+            Guardianas de los Páramos  (Paramos Women Guardians) is an Alliance between the GEF Small Grants Program and two other organizations that are supporting a variety of community projects focused on conservation and climate change adaptation in the Paramos Pisba and TotaBijagual-Mamapacha, about 280 km to the northeast of Bogotá.      
+            The alliance puts special emphasis on women’s participation since historically, the intervention of women in environmental management has been diminished because of discrimination and inequitable access to resources.      
+            A total of 37 projects were selected benefiting 2,400 families who had been working since 2020 to restore native plants, thus strengthening biological corridors and maintaining protected areas.</p>
+    </div>
+    <div id="page2">
+        <div id="scroller">
+            <div id="about-us">
+                <img src="https://img.etimg.com/thumb/width-1200,height-900,imgsize-388346,resizemode-75,msid-92017144/news/india/world-environment-day-2022-do-your-bit-to-save-the-planet.jpg" alt="image" alt="environment">
+                <div id="about-us-in" >
+                    <h3>ABOUT US</h3>
+                    <p>Welcome to our sustainability initiative, a passion-driven project committed to fostering a greener, more sustainable future. Our team, consisting of four dedicated members Deepak, Harshit, Vedang, and Divyansh is united by a shared vision of environmental stewardship and community impact.</p>
+                </div>
+            </div>
+            <div id="green-div">
+                <h4>SIGN UP FOR LATEST UPDATE STRAIGHT TO YOUR INBOX</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/vedang.js"></script>
+</body>
+</html>

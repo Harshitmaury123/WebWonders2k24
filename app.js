@@ -63,6 +63,8 @@ async function main(){
 }
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
+app.use('/includes', express.static(path.join(__dirname, 'includes')));
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -159,9 +161,34 @@ app.get("/faq",(req,res)=>{
     res.render("./includes/faq.ejs");
 });
 
+app.get("/cp",(req,res)=>{
+    res.render("./blogs/communityProjects.ejs");
+});
+
 app.get("/fot",(req,res)=>{
     res.render("./blogs/vedang.ejs");
 });
+
+app.get("/educationalhubs",(req,res)=>{
+    res.render("./blogs/education.ejs");
+});
+
+app.get("/sustain",(req,res)=>{
+   const imagePath=path.join(__dirname,'.vscode\QUANTONS\views\blogs\sustain.jpeg');
+   res.sendFile(imagePath);
+});
+
+app.get("/quiz",(req,res)=>{
+    res.render("./quiz/index.ejs");
+});
+
+app.get("/result",(req,res)=>{
+    res.render("./quiz/result.ejs");
+});
+
+app.get("/newsapi",(req,res)=>{
+    res.render("./blogs/news.ejs");
+})
 
 app.all("*",(req,res,next)=>{
     next(new ExpressError(404,"Route not found!"));

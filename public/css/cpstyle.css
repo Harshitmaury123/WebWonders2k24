@@ -1,32 +1,24 @@
-#quiz{
-    padding: 50px;
-    background-color: #ffffffcc;
-    margin: 100px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    text-align: center;
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, Arial, sans-serif;
+    box-sizing: border-box;
 }
-#quiz a{
-    color:black;
-    font-size:40px;
-    font-weight: 500;
-}
+
 #nav {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-image:url(https://wallpaperaccess.com/full/8854340.png);
-    object-fit: cover;
+    background-color: rgba(44, 62, 80, 0.7);
     padding: 10px;
-    color: black;
+    color: white;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     backdrop-filter: blur(10px);
-    font-weight:400;
-    font-size:10px;
-
 }
 
 #nav img {
@@ -36,7 +28,6 @@
 #nav h4 {
     margin: 0 15px;
     cursor: pointer;
-    font-size:20px;
 }
 
 #cursor,
@@ -180,7 +171,7 @@ video {
 }
 
 #food-sustainability {
-    background-image: url('https://www.sustainabletourismnetwork.ie/wp-content/uploads/2020/10/Food-Day-Post.png');
+    background-image: url('https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production+Library/27-04-2022-UNDP-Belize.jpg/image1170x530cropped.jpg');
 }
 
 #scroller {

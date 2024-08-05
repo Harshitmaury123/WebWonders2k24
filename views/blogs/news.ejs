@@ -1,0 +1,93 @@
+<% layout("/layouts/boilerplate.ejs")%>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .news-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .news-item {
+            border-bottom: 1px solid #ccc;
+            padding: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        .news-item:hover {
+            background-color: #e8f5e9;
+            transform: scale(1.02);
+        }
+        h3 {
+            margin: 0 0 10px;
+            color: #2e7d32;
+        }
+        p {
+            margin: 0 0 10px;
+            line-height: 1.6;
+        }
+        a {
+            color: #1b5e20;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .news-item {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="news-container" id="news-container"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const apiKey = '64592f2def304d8aac7e76ab302f7924';
+    const url = `https://newsapi.org/v2/everything?q=sustainability&apiKey=${apiKey}`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const articles = data.articles;
+            const newsContainer = document.getElementById('news-container');
+
+            articles.forEach(article => {
+                const newsItem = document.createElement('div');
+                newsItem.className = 'news-item';
+
+                const title = document.createElement('h3');
+                title.textContent = article.title;
+                newsItem.appendChild(title);
+
+                const description = document.createElement('p');
+                description.textContent = article.description;
+                newsItem.appendChild(description);
+
+                const link = document.createElement('a');
+                link.href = article.url;
+                link.textContent = 'Read more';
+                link.target = '_blank';
+                newsItem.appendChild(link);
+
+                newsContainer.appendChild(newsItem);
+            });
+        })
+        .catch(error => console.error('Error fetching news:', error));
+});
+
+    </script>
+

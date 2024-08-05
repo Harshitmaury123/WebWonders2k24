@@ -1,0 +1,301 @@
+<% layout("/layouts/boilerplate.ejs")%>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            background-color: #2ecc71;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .navbar-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-links a:hover {
+            color: #27ae60;
+        }
+
+        .hero {
+            position: relative;
+            background-image: url("https://source.unsplash.com/1600x900/?nature,green");
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 5rem 2rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero h1, .hero p {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin: 1rem 0 0;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .content {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .content h1, .content h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .content p {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .content a {
+            color: #2ecc71;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        .content a:hover {
+            text-decoration: underline;
+            color: #27ae60;
+        }
+
+        .content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .content ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .content ul li a {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 2px;
+        }
+
+        .content ul li a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #2ecc71;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+
+        .content ul li a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #2ecc71;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+    </style>
+    <div class="hero">
+        <h1>Educational Hubs</h1>
+        <p>Empowering sustainable practices for a greener future</p>
+    </div>
+
+    <div class="content">
+        <h1 data-aos="fade-up">Educational Hubs</h1>
+        <p data-aos="fade-up">
+            Welcome to the Educational Hubs, your ultimate resource for all things
+            sustainability. Our mission is to empower individuals and communities to
+            adopt sustainable practices and create a positive impact on the
+            environment.
+        </p>
+
+        <h2 data-aos="fade-up">Renewable Energy</h2>
+        <p data-aos="fade-up">
+            Explore the latest advancements in renewable energy technologies,
+            including solar, wind, hydro, and geothermal power. Learn how these
+            sustainable energy sources can reduce our reliance on fossil fuels and
+            mitigate climate change.
+        </p>
+        <p data-aos="fade-up">
+            <a href="https://www.energy.gov/eere/renewable-energy"
+                >Learn more about renewable energy</a
+            >
+        </p>
+
+        <h2 data-aos="fade-up">Waste Reduction</h2>
+        <p data-aos="fade-up">
+            Discover effective waste reduction strategies to minimize your
+            environmental footprint. From recycling and composting to reducing
+            single-use plastics, our waste reduction hub provides actionable tips to
+            help you manage waste more sustainably.
+        </p>
+        <p data-aos="fade-up">
+            <a href="https://www.epa.gov/recycle"
+                >Learn more about waste reduction</a
+            >
+        </p>
+
+        <h2 data-aos="fade-up">Green Living</h2>
+        <p data-aos="fade-up">
+            Adopting a green lifestyle doesn't have to be difficult. Our green
+            living hub offers simple yet impactful ways to incorporate
+            sustainability into your daily routine. From eco-friendly home
+            improvements to sustainable fashion tips, we cover it all.
+        </p>
+        <p data-aos="fade-up">
+            <a href="https://www.greenlivingtips.com/"
+                >Learn more about green living</a
+            >
+        </p>
+
+        <h2 data-aos="fade-up">Climate Change Awareness</h2>
+        <p data-aos="fade-up">
+            Understand the science behind climate change and its far-reaching
+            impacts on our planet. Our climate change hub provides up-to-date
+            information on global warming, its causes, and what we can do to address
+            this critical issue.
+        </p>
+        <p data-aos="fade-up">
+            <a href="https://climate.nasa.gov/">Learn more about climate change</a>
+        </p>
+
+        <h2 data-aos="fade-up">Sustainable Agriculture</h2>
+        <p data-aos="fade-up">
+            Sustainable agriculture is essential for ensuring food security and
+            preserving our natural resources. Explore our resources on organic
+            farming, permaculture, and regenerative agriculture practices that
+            promote soil health and biodiversity.
+        </p>
+        <p data-aos="fade-up">
+            <a
+                href="https://www.ifoam.bio/en/organic-policy-guarantee/organic-agriculture"
+                >Learn more about sustainable agriculture</a
+            >
+        </p>
+
+        <h2 data-aos="fade-up">Ethical Investing</h2>
+        <p data-aos="fade-up">
+            Align your investments with your values by exploring ethical investing
+            options. Our hub covers impact investing, green bonds, and other
+            sustainable investment opportunities that generate positive
+            environmental and social outcomes.
+        </p>
+        <p data-aos="fade-up">
+            <a
+                href="https://www.investopedia.com/articles/investing/092815/impact-investing.asp"
+                >Learn more about ethical investing</a
+            >
+        </p>
+
+        <h2 data-aos="fade-up">Featured Resources</h2>
+        <p data-aos="fade-up">
+            Check out our curated list of articles, videos, and courses designed to
+            help you deepen your understanding of sustainability:
+        </p>
+        <ul>
+            <li data-aos="fade-up">
+                <a
+                    href="https://www.nature.org/en-us/what-we-do/our-insights/perspectives/how-to-reduce-your-carbon-footprint/"
+                    >How to Reduce Your Carbon Footprint</a
+                >
+            </li>
+            <li data-aos="fade-up">
+                <a href="https://www.energy.gov/eere/renewable-energy"
+                    >The Basics of Renewable Energy</a
+                >
+            </li>
+            <li data-aos="fade-up">
+                <a
+                    href="https://www.ewg.org/consumer-guides/healthy-living-home-guide"
+                    >Sustainable Living Tips</a
+                >
+            </li>
+            <li data-aos="fade-up">
+              <a href="https://climate.nasa.gov/climate_resources/"
+                  >Understanding Climate Change</a
+              >
+          </li>
+          <li data-aos="fade-up">
+              <a
+                  href="https://www.investopedia.com/articles/investing/092815/impact-investing.asp"
+                  >Investing in Green Technologies</a
+              >
+          </li>
+      </ul>
+
+      <h2 data-aos="fade-up">Join the Community</h2>
+      <p data-aos="fade-up">
+          Connect with like-minded individuals in our community forums. Share your
+          experiences, ask questions, and collaborate on projects aimed at making
+          the world a greener place.
+      </p>
+      <p data-aos="fade-up">
+          <a href="https://www.reddit.com/r/sustainability/"
+              >Join the Community Forums</a
+          >
+      </p>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-GqisfHfiBq7nHg5xShtAN2UKDJ8H+FV4pZrXEqP4iOXT5hxDbia+2QShluyd2AcSYxaED3Z0/1svOov/XYf/6g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+      AOS.init();
+  </script>

@@ -8,14 +8,13 @@
         <a class="listing-link" href="/blogs/<%=blog._id%>">
     <div class="card col" style="width: 18rem;">
         <img src="<%=blog.image%>" class="card-img-top" alt="blog_image" style="height:20rem;">
-        <div class="card-img-overlay">Read full blog..</div>
         <div class="card-body">
-          <p class="card-text">
-            <b><%=blog.title%></b>
+          <p class="card-sub-title">Please Read our complete blog!</p>
+            <h1 class="card-title"><%=blog.title%></h1>
             <br>
-            <%=blog.author%>
+            <p class="card-info"><%=blog.author%></p>
             <br>
-          </p>
+            <button class="card-btn">Read Blog</button>
       </div>
       </div>
     </a>

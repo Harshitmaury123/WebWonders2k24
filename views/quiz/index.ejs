@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+    <!-- <link rel="stylesheet" href="../../public/css/quizstyle.css" /> -->
+     <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  body {
+    color: #fff;
+    background: #09001d;
+    overflow: hidden;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .quiz-section {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: #09001d;
+    transition: 0.8s ease-in-out;
+    transition-delay: 0.25s;
+    z-index: 100;
+  }
+  .quiz-section.active {
+    left: 0;
+  }
+  .quiz-section .quiz-box {
+    position: relative;
+    width: 500px;
+    background: transparent;
+    border: 2px solid #0f0;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+  }
+  .quiz-box h1 {
+    font-size: 32px;
+    text-align: center;
+    background: linear-gradient(45deg, transparent,  #0f0, transparent);
+    border-radius: 6px;
+  }
+  
+  .quiz-box .quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 2px solid  #0f0;
+    margin-bottom: 25px;
+  }
+  .quiz-header span {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .quiz-header .header-score {
+    background: #0f0;
+    border-radius: 3px;
+    padding: 7px;
+  }
+  .quiz-box .question-text {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .option-list .option {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    font-size: 17px;
+    margin: 15px 0;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .option-list .option:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  .quiz-box .quiz-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid  #0f0;
+    padding-top: 20px;
+    margin-top: 30px;
+  }
+  
+  .quiz-footer .question-total {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .quiz-footer .next-btn {
+    z-index: 1;
+    width: 100%;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    outline: none;
+    border-radius: 6px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 600;
+    cursor: pointer;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  
+  .quiz-footer .next-btn:hover {
+    background:  #0f0;
+    border-color:  #0f0;
+  }
+  .option-selected {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    font-size: 17px;
+    margin: 15px 0;
+    cursor: pointer;
+    transition: 0.3s;
+    background: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.7);
+  }
+  .quiz-footer .next-active {
+    background-color:  #0f0;
+    color: white;
+  }
+  .option-list .option-correct {
+    background-color: green;
+  }
+  .option-list .option-wrong {
+    background-color: red;
+  }
+  
+     </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="quiz-section">
+        <div class="quiz-box">
+          <h1>Sustainability Quiz</h1>
+          <div class="quiz-header">
+            <span class="question-total">1 of 5 questions</span>
+            <span class="header-score">Score:0 / 100</span>
+          </div>
+          <h2 class="question-text">
+            Which of the following is a renewable energy source?
+          </h2>
+          <div class="option-list">
+            <div class="option" id="A">
+              <span>A. Coal </span>
+            </div>
+            <div class="option" id="B">
+              <span>B. Solar</span>
+            </div>
+            <div class="option" id="C">
+              <span>C. Natural Gas</span>
+            </div>
+            <div class="option" id="D">
+              <span>D. Nuclear</span>
+            </div>
+          </div>
+          <div class="quiz-footer">
+            <button class="next-btn" id="btn" disabled>Next</button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- <script src="../../public/js/questionsquiz.js"></script>
+    <script src="../../public/js/scriptquiz.js"></script> -->
+    <script>
+        let questions = [
+    {
+      numb: 1,
+      question: "Which of the following is a renewable energy source?",
+      answer: "B",
+      options: ["A. Coal", "B. Solar", "C. Natural Gas", "D. Nuclear"],
+    },
+    {
+      numb: 2,
+      question: "What is the main cause of climate change?",
+      answer: "A",
+      options: [
+        "A. Greenhouse gas emissions",
+        "B. Solar flares",
+        "C. Volcanic eruptions",
+        "D. Ocean currents",
+      ],
+    },
+    {
+      numb: 3,
+      question: "Which of these practices helps reduce waste?",
+      answer: "C",
+      options: [
+        "A. Using single-use plastics",
+        "B. Throwing away food",
+        "C. Recycling",
+        "D. Burning trash",
+      ],
+    },
+    {
+      numb: 4,
+      question: "What does 'sustainable living' mean?",
+      answer: "D",
+      options: [
+        "A. Living in the city",
+        "B. Using non-renewable resources",
+        "C. Ignoring environmental impact",
+        "D. Reducing environmental footprint",
+      ],
+    },
+    {
+      numb: 5,
+      question: "Which of the following contributes to ocean pollution?",
+      answer: "B",
+      options: [
+        "A. Planting trees",
+        "B. Plastic waste",
+        "C. Organic farming",
+        "D. Using public transport",
+      ],
+    },
+  ];
+  let selected = "";
+let presentQuestion = 1;
+let score = 0;
+document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("option")) {
+    handleOptionclick(event.target);
+  } else if (event.target.classList.contains("option-selected")) {
+    handleOptionSelect(event.target);
+  }
+});
+const submit = () => {
+  document.cookie = `score=${score}`;
+  document.location.href = "/result";
+};
+const renderQuestion = () => {
+  selected = "";
+  toggleNext();
+  resetOptions();
+  document.querySelector(
+    ".question-total"
+  ).innerText = `${presentQuestion} of 5 questions;`;
+  document.querySelector(".header-score").innerText = `Score:${score} / 100`;
+  document.querySelector(".question-text").innerText =
+    questions[presentQuestion - 1]["question"];
+
+  document.getElementById("A").innerText =
+    questions[presentQuestion - 1]["options"][0];
+  document.getElementById("B").innerText =
+    questions[presentQuestion - 1]["options"][1];
+  document.getElementById("C").innerText =
+    questions[presentQuestion - 1]["options"][2];
+  document.getElementById("D").innerText =
+    questions[presentQuestion - 1]["options"][3];
+  if (presentQuestion == 5) {
+    document.getElementById("btn").innerText = "Submit";
+  }
+};
+const resetOptions = () => {
+  let el = document.querySelector(".option-selected");
+  el.classList.remove("option-selected");
+  el.classList.add("option");
+};
+let next = document.querySelector(".quiz-footer");
+next.addEventListener("click", () => {
+  let btn = document.getElementById("btn");
+  if (btn.disabled) return;
+
+  if (selected == questions[presentQuestion - 1]["answer"]) {
+    displayCorrectAnswer();
+  } else {
+    displayWrongAnswer();
+  }
+});
+const handleOptionclick = (opt) => {
+  let id = opt.id;
+  opt.classList.add("option-selected");
+  opt.classList.remove("option");
+  if (selected == "") {
+    toggleNext();
+  }
+  if (selected != "") {
+    let el = document.getElementById(selected);
+    el.classList.add("option");
+    el.classList.remove("option-selected");
+  }
+  selected = id;
+};
+const handleOptionSelect = (opt) => {
+  let id = opt.id;
+  opt.classList.add("option");
+  opt.classList.remove("option-selected");
+  if (id == selected) {
+    toggleNext();
+    selected = "";
+  }
+};
+const toggleNext = () => {
+  let next = document.querySelector(".next-btn");
+  next.classList.toggle("next-active");
+  next.disabled = !next.disabled;
+};
+
+const displayCorrectAnswer = () => {
+  let el = document.getElementById(selected);
+  el.classList.add("option-correct");
+  setTimeout(() => {
+    el.classList.remove("option-correct");
+    score += 20;
+    if (presentQuestion == 5) {
+      submit();
+      return;
+    }
+    presentQuestion++;
+    renderQuestion();
+  }, 1300);
+};
+const displayWrongAnswer = () => {
+  let cOpt = questions[presentQuestion - 1]["answer"];
+  let correctEl = document.getElementById(cOpt);
+  let wrongEl = document.getElementById(selected);
+
+  correctEl.classList.add("option-correct");
+  wrongEl.classList.add("option-wrong");
+  setTimeout(() => {
+    correctEl.classList.remove("option-correct");
+    wrongEl.classList.remove("option-wrong");
+    if (presentQuestion == 5) {
+      submit();
+      return;
+    }
+    presentQuestion++;
+
+    renderQuestion();
+  }, 1300);
+};
+
+    </script>
+  </body>
+</html>
