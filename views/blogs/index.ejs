@@ -1,23 +1,143 @@
 <% layout("/layouts/boilerplate.ejs")%>
-<video autoplay loop muted src="https://cdn.pixabay.com/video/2021/10/05/90877-629483574_tiny.mp4"></video>
-    <h3 style="color:#2aeb10e8 !important;">Blogs</h3>
-    <!-- <form method="GET" action="/blogs/new">
-        <button>Create New Blog</button>
-    </form> -->
-    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
-    <%for(let blog of allBlogs){%>
-        <a class="listing-link" href="/blogs/<%=blog._id%>">
-    <div class="card col" style="width: 18rem;">
-        <img src="<%=blog.image%>" class="card-img-top" alt="blog_image" style="height:20rem;">
-        <div class="card-body">
-          <p class="card-sub-title">Please Read our complete blog!</p>
-            <h1 class="card-title"><%=blog.title%></h1>
-            <br>
-            <p class="card-info"><%=blog.author%></p>
-            <br>
-            <button class="card-btn">Read Blog</button>
-      </div>
-      </div>
-    </a>
-      <%}%>
-      </div>
+
+<style>
+  body {
+    background-color: #000;
+    font-family: 'Arial', sans-serif;
+  }
+  .blog-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .blog-card {
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(99, 219, 74, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: translateY(0);
+    position: relative;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .blog-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .blog-card:hover img {
+    transform: scale(1.1);
+  }
+
+  .blog-card-content {
+    padding: 1.5rem;
+  }
+
+  .blog-card-content h1 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+    color: #333;
+  }
+
+  .blog-card-content p {
+    margin: 0;
+    color: #666;
+  }
+
+  .blog-card-content button {
+    background-color: #20c106;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .blog-card-content button:hover {
+    background-color: #1a9707;
+    transform: scale(1.05);
+  }
+
+  .fade-in {
+    opacity: 0;
+    animation: fadeInAnimation 1s forwards;
+  }
+
+  @keyframes fadeInAnimation {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Additional Animations */
+  .listing-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .blog-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #20c106, #1a9707);
+    transition: width 0.3s;
+    width: 0;
+  }
+
+  .blog-card:hover::before {
+    width: 100%;
+  }
+
+  .blog-card img {
+    animation: zoomIn 0.5s ease-in-out;
+  }
+
+  @keyframes zoomIn {
+    from {
+      transform: scale(1.3);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+</style>
+
+
+<div class="blog-container fade-in">
+  <% for(let blog of allBlogs) { %>
+    <div class="blog-card">
+      <a class="listing-link" href="/blogs/<%= blog._id %>">
+        <img src="<%= blog.image %>" alt="blog_image">
+        <div class="blog-card-content">
+          <h1 class="card-title"><%= blog.title %></h1>
+          <p class="card-info"><%= blog.author %></p>
+          <button class="card-btn">Read Blog</button>
+        </div>
+      </a>
+    </div>
+  <% } %>
+</div>

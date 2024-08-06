@@ -133,7 +133,6 @@ h1 {
     border: none;
     cursor: pointer;
 }
-
 .petition-form button:hover {
     background-color: #e53935;
 }
@@ -181,7 +180,7 @@ h1 {
                     </div>
                     <div class="goal-container">
                         <div>
-                            <p class="goal">2143</p>
+                            <p class="goal" id="curr">2143</p>
                             <p class="signatures">Signatures</p>
                         </div>
                         <div>
@@ -189,7 +188,7 @@ h1 {
                             <p class="next-goal">Next Goal</p>
                         </div>
                     </div>
-                    <form class="petition-form" action="submit-petition.php" method="post">
+                    <form class="petition-form" action="#" method="post">
                         <input type="text" name="first_name" placeholder="First name" required>
                         <input type="text" name="last_name" placeholder="Last name" required>
                         <input type="email" name="email" placeholder="Email" required>
@@ -199,7 +198,7 @@ h1 {
                             <input type="checkbox" name="display_name" id="display_name" class="checkbox" checked>
                             <label for="display_name">Display my comment on this petition</label>
                         </div>
-                        <button type="submit">Sign this petition</button>
+                        <button type="button" id="btn">Sign this petition</button>
                     </form>
                 </div>
             </div>
@@ -222,10 +221,28 @@ h1 {
                 </p>
             </div>
         </div>
-        <script src="app.js"></script>
+        <script >
+        document.addEventListener("DOMContentLoaded", () => {
+  let currSign = document.getElementById("curr").innerText;
+  console.log(currSign);
+  if (localStorage.getItem("p3") === null) {
+    localStorage.setItem("p3", currSign);
+  }
+  document.getElementById("curr").innerText = localStorage.getItem("p3");
+});
+
+document.getElementById("btn").addEventListener("click", (e) => {
+  e.preventDefault();
+  let prev = parseInt(localStorage.getItem("p3"), 10); // Ensure the value is treated as a number
+  prev++;
+  localStorage.setItem("p3", prev);
+  document.getElementById("curr").innerText = prev;
+  location.reload();
+});
+        </script>
+        <a style="color:rgb(92, 213, 84) !important; margin-left:88px;margin-bottom:10px;" class="nav-link" href="/petition2">Petition1</a>
+        <a style="color:rgb(92, 213, 84) !important;margin-left:88px;margin-bottom:10px;" class="nav-link" href="/petition3">Petition2</a>
     </div>
-    <a class="nav-link" href="/petition2">Petition1</a>
-	<a class="nav-link" href="/petition3">Petition2</a>
 </body>
 
 </html>

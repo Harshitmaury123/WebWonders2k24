@@ -109,7 +109,11 @@ app.get("/blogs/new",isLoggedIn,(req,res)=>{
 //show route
 app.get("/blogs/:id",wrapAsync(async(req,res)=>{
     let {id}=req.params;
-    const blog=await Blogs.findById(id);
+    const blog=await Blogs.findById(id).populate("owner");
+    if(!blog){
+        req.flash("error","Blog you requested for does not exist!");
+        res.redirect("/blogs");
+    }
     res.render("blogs/show.ejs",{blog});
 })
 );
@@ -212,6 +216,6 @@ app.use((err,req,res,next)=>{
     res.status(statusCode).render("error.ejs",{message});
 });
 
-app.listen(8080,()=>{
+app.listen(3000,()=>{
     console.log("server is running on port 8080");
 });
