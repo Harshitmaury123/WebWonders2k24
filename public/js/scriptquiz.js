@@ -1,112 +1,115 @@
-var crsr = document.querySelector("#cursor");
-var blur = document.querySelector("#cursor-blur");
+let selected = "";
+let presentQuestion = 1;
+let score = 0;
+document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("option")) {
+    handleOptionclick(event.target);
+  } else if (event.target.classList.contains("option-selected")) {
+    handleOptionSelect(event.target);
+  }
+});
+const submit = () => {
+  document.cookie = score=${score};
+  document.location.href = "/result.html";
+};
+const renderQuestion = () => {
+  selected = "";
+  toggleNext();
+  resetOptions();
+  document.querySelector(
+    ".question-total"
+  ).innerText = ${presentQuestion} of 5 questions;;
+  document.querySelector(".header-score").innerText = Score:${score} / 100;
+  document.querySelector(".question-text").innerText =
+    questions[presentQuestion - 1]["question"];
 
-document.addEventListener("mousemove", function (dets) {
-  crsr.style.left = dets.x + "px";
-  crsr.style.top = dets.y + "px";
-  blur.style.left = dets.x - 250 + "px";
-  blur.style.top = dets.y - 250 + "px";
-});
+  document.getElementById("A").innerText =
+    questions[presentQuestion - 1]["options"][0];
+  document.getElementById("B").innerText =
+    questions[presentQuestion - 1]["options"][1];
+  document.getElementById("C").innerText =
+    questions[presentQuestion - 1]["options"][2];
+  document.getElementById("D").innerText =
+    questions[presentQuestion - 1]["options"][3];
+  if (presentQuestion == 5) {
+    document.getElementById("btn").innerText = "Submit";
+  }
+};
+const resetOptions = () => {
+  let el = document.querySelector(".option-selected");
+  el.classList.remove("option-selected");
+  el.classList.add("option");
+};
+let next = document.querySelector(".quiz-footer");
+next.addEventListener("click", () => {
+  let btn = document.getElementById("btn");
+  if (btn.disabled) return;
 
-var h4all = document.querySelectorAll("#nav h4");
-h4all.forEach(function (elem) {
-  elem.addEventListener("mouseenter", function () {
-    crsr.style.scale = 3;
-    crsr.style.border = "1px solid #fff";
-    crsr.style.backgroundColor = "transparent";
-  });
-  elem.addEventListener("mouseleave", function () {
-    crsr.style.scale = 1;
-    crsr.style.border = "0px solid #95C11E";
-    crsr.style.backgroundColor = "#95C11E";
-  });
+  if (selected == questions[presentQuestion - 1]["answer"]) {
+    displayCorrectAnswer();
+  } else {
+    displayWrongAnswer();
+  }
 });
+const handleOptionclick = (opt) => {
+  let id = opt.id;
+  opt.classList.add("option-selected");
+  opt.classList.remove("option");
+  if (selected == "") {
+    toggleNext();
+  }
+  if (selected != "") {
+    let el = document.getElementById(selected);
+    el.classList.add("option");
+    el.classList.remove("option-selected");
+  }
+  selected = id;
+};
+const handleOptionSelect = (opt) => {
+  let id = opt.id;
+  opt.classList.add("option");
+  opt.classList.remove("option-selected");
+  if (id == selected) {
+    toggleNext();
+    selected = "";
+  }
+};
+const toggleNext = () => {
+  let next = document.querySelector(".next-btn");
+  next.classList.toggle("next-active");
+  next.disabled = !next.disabled;
+};
 
-gsap.to("#nav", {
-  backgroundColor: "#000",
-  duration: 0.5,
-  height: "110px",
-  scrollTrigger: {
-    trigger: "#nav",
-    scroller: "body",
-    // markers:true,
-    start: "top -10%",
-    end: "top -11%",
-    scrub: 1,
-  },
-});
+const displayCorrectAnswer = () => {
+  let el = document.getElementById(selected);
+  el.classList.add("option-correct");
+  setTimeout(() => {
+    el.classList.remove("option-correct");
+    score += 20;
+    if (presentQuestion == 5) {
+      submit();
+      return;
+    }
+    presentQuestion++;
+    renderQuestion();
+  }, 1300);
+};
+const displayWrongAnswer = () => {
+  let cOpt = questions[presentQuestion - 1]["answer"];
+  let correctEl = document.getElementById(cOpt);
+  let wrongEl = document.getElementById(selected);
 
-gsap.to("#main", {
-    backgroundColor: "#000",
-    scrollTrigger: {
-      trigger: "#main",
-      scroller: "body",
-      // markers: true,
-      start: "top -25%",
-      end: "top -70%",
-      scrub: 4,
-    },
-  });
-  
-  gsap.from("#about-us img,#about-us-in", {
-    y: 90,
-    opacity: 0,
-    duration: 1,
-    scrollTrigger: {
-      trigger: "#about-us",
-      scroller: "body",
-      // markers:true,
-      start: "top 70%",
-      end: "top 65%",
-      scrub: 1,
-    },
-  });
-gsap.from(".card", {
-  scale: 0.8,
-  // opacity:0,
-  duration: 1,
-  stagger: 0.1,
-  scrollTrigger: {
-    trigger: ".card",
-    scroller: "body",
-    // markers:false,
-    start: "top 70%",
-    end: "top 65%",
-    scrub: 1,
-  },
-});
-gsap.from("#colon1", {
-  y: -70,
-  x: -70,
-  scrollTrigger: {
-    trigger: "#colon1",
-    scroller: "body",
-    // markers:true,
-    start: "top 55%",
-    end: "top 45%",
-    scrub: 4,
-  },
-});
-gsap.from("#colon2", {
-  y: 70,
-  x: 70,
-  scrollTrigger: {
-    trigger: "#colon1",
-    scroller: "body",
-    // markers:true,
-    start: "top 55%",
-    end: "top 45%",
-    scrub: 4,
-  },
-});
-gsap.from("#page4 h1", {
-  y: 50,
-  scrollTrigger: {
-    trigger: "#page4 h1",
-    scroller: "body",
-    // markers:true,
-    start: "top 75%",
-    end: "top 70%",
-    scrub:3,
-},
-});
+  correctEl.classList.add("option-correct");
+  wrongEl.classList.add("option-wrong");
+  setTimeout(() => {
+    correctEl.classList.remove("option-correct");
+    wrongEl.classList.remove("option-wrong");
+    if (presentQuestion == 5) {
+      submit();
+      return;
+    }
+    presentQuestion++;
+
+    renderQuestion();
+  }, 1300);
+};
