@@ -1,0 +1,293 @@
+<% layout("/layouts/boilerplate.ejs")%>
+<style>
+	@import url("https://fonts.googleapis.com/css2?family=Merienda:wght@500&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #f5f5f5;
+    margin: 0;
+    word-spacing: 3px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.inner-container {
+    margin: 0 auto;
+    width: 60vw;
+    padding: 20px;
+
+}
+
+.check {
+    display: flex;
+}
+
+input#display_name.checkbox {
+    width: 15px;
+    margin: 0 20px;
+}
+
+.outer-container {
+    background-color: #fff;
+    padding: 20px 20px 50px 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+.lower-content {
+    padding: 20px;
+}
+
+.petition-container {
+    display: flex;
+}
+
+.part {
+    padding: 20px;
+    flex: 1;
+}
+
+.part:first-child {
+    margin-right: 20px;
+}
+
+h1 {
+    font: 32px "noto-sans";
+    margin-bottom: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.petition-image {
+
+    width: 500px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.goal-container {
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+}
+
+.goal {
+    font-weight: bolder;
+    color: green;
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+.signatures {
+    margin: 0;
+}
+
+.next-goal {
+    margin: 0;
+}
+
+.progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress {
+    height: 10px;
+    background-color: #4caf50;
+}
+
+.started-by {
+    margin: 10px 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.petition-details {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+.petition-form input,
+.petition-form button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.petition-form button {
+    background-color: #ff3b3b;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.petition-form button:hover {
+    background-color: #e53935;
+}
+
+.petition-form label {
+    display: block;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.qr{
+    display:flex;
+}
+.qr img{
+    height: 100px;
+    width: 100px;
+    margin:0px 20px 0px 0px;
+}
+</style>
+	<div class="outer-container">
+		<div class="inner-container">
+			<h1><b>No more Cement roads in Nagpur / नागपुर में अब और सीमेंट की सड़कें नहीं चाहिए।</b></h1>
+			<div class="petition-container">
+
+
+				<div class="part">
+					<img src="https://assets.change.org/photos/4/uo/gh/BXUOgHcobjWSQGT-800x450-noPad.jpg?1721975359"
+						alt="Petition Image" class="petition-image">
+					<p class="started-by">Started by <u><b><a href="">Isabel Shiju</a></b></u></p><br>
+					<p class="petition-details">
+						<h2><b>Why this petition matters?</b></h2>
+						Most of us might be already seeing erratic constructions of Cement roads all around the City and
+						outskirts
+						of our beloved Nagpur, they have not left out any lane or corner of the city without having a
+						Cement
+						road
+						whether its a main road or a small Galli. While prima facie it looks to be a "Development"
+						happening,
+						but if
+						if we deep dive into the basics of road infrastructures there are more disadvantages of Cement
+						roads
+						than
+						that of Bitumen or Tar roads.<br><br>
+
+						This year most of us have experienced many hotter evenings and warmer nights in summer season
+						and
+						the
+						total
+						number of warmer nights in Nagpur have touched a all time high this year, thanks to Cement roads
+						combined
+						with other factors responsible. Due to this the average temperatures have been rising above 46 -
+						47
+						degrees
+						in summer whereas the surrounding regions outside of the core city had 2-3 degrees lesser.
+						<br><br>
+					</p>
+				</div>
+
+				<div class="part">
+					<div class="progress-bar">
+						<div class="progress" style="width: 75%;"></div>
+					</div>
+					<div class="goal-container">
+						<div>
+							<p class="goal">3,743</p>
+							<p class="signatures">Signatures</p>
+						</div>
+						<div>
+							<p class="goal" style="text-align: right;">5,000</p>
+							<p class="next-goal">Next Goal</p>
+						</div>
+					</div>
+					<form class="petition-form" action="submit-petition.php" method="post">
+						<input type="text" name="first_name" placeholder="First name" required>
+						<input type="text" name="last_name" placeholder="Last name" required>
+						<input type="email" name="email" placeholder="Email" required>
+						<input type="text" name="location" placeholder="Location" required>
+						<br> <br>
+						<div class="check">
+							<input type="checkbox" name="display_name" id="display_name" class="checkbox" checked>
+							<label for="display_name">Display my comment on this petition</label>
+						</div>
+						<button type="submit">Sign this petition</button>
+					</form>
+				</div>
+			</div>
+			<div class="lower-content">
+				<p>
+					<b>Negative Impacts of Cement roads:</b><br><br>
+
+					<b>Urban Heat Island Effect:</b> Concrete surfaces due to its light color reflect heat in
+					surrounding
+					air
+					contributing to higher temperatures in urban areas in day and night compared to their rural
+					counterparts.
+					<br><br>
+					<b>Water Runoff and flooding:</b> Concrete surfaces are impermeable, leading to increased stormwater
+					runoff,
+					which
+					contribute to flooding and pollution of waterways with contaminants picked up from road
+					surfaces. <br><br>
+
+					<b>Carbon Emissions:</b> The production of cement, a key component of concrete, is a major source of
+					CO2
+					emissions.
+					The cement industry is responsible for approximately 8% of global CO2 emissions.
+					<br><br>
+					<b>Resource Extraction:</b> Concrete production requires significant amounts of natural resources,
+					including
+					sand,
+					gravel, and limestone, leading to habitat destruction and biodiversity loss.
+					<br><br>
+					<b>Energy Consumption:</b> The manufacturing of cement is energy-intensive, requiring high
+					temperatures
+					that
+					are
+					typically achieved using fossil fuels.
+					<br><br>
+					<b>Waste Generation:</b> At the end of their life cycle, concrete roads generate a large amount of
+					construction
+					and
+					demolition waste, which can be challenging to recycle.
+					<br><br>
+					<b>Cement roads acts as a Cancer for a City</b>
+
+					Concrete roads have a range of environmental impacts, particularly concerning climate change and
+					temperature
+					issues. Here's a detailed look at these factors:
+					<br><br>
+					<b>Environmental Impacts of Concrete Roads</b>
+					<br><br>
+					<b>Carbon Footprint</b>
+					<br><br>
+					<b>Production of Cement:</b> Cement, a primary ingredient in concrete, is a significant source of
+					CO₂
+					emissions.
+					The production of one ton of cement generates approximately one ton of CO₂.
+					<br><br>
+					<b>Energy Consumption:</b> The manufacturing process of cement and concrete is energy-intensive,
+					contributing
+					to
+					greenhouse gas emissions.
+				</p>
+				<div class="qr">
+                    <img src="data:image/png;base64,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">
+                    <p><br><br> Share this petition in person or use the QR code for your own material.</p>
+                </div>
+			</div>
+		</div>
+		<script src="app.js"></script>
+	</div>
+	<a class="nav-link" href="/petition2">Petition2</a>
+	<br>
+	<a class="nav-link" href="/petition3">Petition3</a>
+</body>
+
+</html>

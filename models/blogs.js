@@ -14,6 +14,10 @@ const blogSchema=new Schema({
     author:{
         type:String,
         required:true,
+    },
+    owner:{
+       type: Schema.Types.ObjectId,
+       ref:"User",
     }
 });
 

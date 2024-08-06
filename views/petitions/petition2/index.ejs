@@ -1,0 +1,225 @@
+<% layout("/layouts/boilerplate.ejs")%>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Merienda:wght@500&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #f5f5f5;
+    margin: 0;
+    word-spacing: 3px;
+}
+h2 {
+    text-align: center;
+}
+
+.inner-container {
+    margin: 0 auto;
+    width: 60vw;
+    padding: 20px;
+
+}
+
+.check {
+    display: flex;
+}
+
+input#display_name.checkbox {
+    width: 15px;
+    margin: 0 20px;
+}
+
+.outer-container {
+    background-color: #fff;
+    padding: 20px 20px 50px 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+.lower-content {
+    padding: 20px;
+}
+
+.petition-container {
+    display: flex;
+}
+
+.part {
+    padding: 20px;
+    flex: 1;
+}
+
+.part:first-child {
+    margin-right: 20px;
+}
+
+h1 {
+    font: 32px "noto-sans";
+    margin-bottom: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.petition-image {
+
+    width: 500px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.goal-container {
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+}
+
+.goal {
+    font-weight: bolder;
+    color: green;
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+.signatures {
+    margin: 0;
+}
+
+.next-goal {
+    margin: 0;
+}
+
+.progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress {
+    height: 10px;
+    background-color: #4caf50;
+}
+
+.started-by {
+    margin: 10px 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.petition-details {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+.petition-form input,
+.petition-form button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.petition-form button {
+    background-color: #ff3b3b;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.petition-form button:hover {
+    background-color: #e53935;
+}
+
+.petition-form label {
+    display: block;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.qr{
+    display:flex;
+}
+.qr img{
+    height: 100px;
+    width: 100px;
+    margin:0px 20px 0px 0px;
+}
+</style>
+    <div class="outer-container">
+        <div class="inner-container">
+            <h1><b>Demonstrate your commitment to your students by supporting sustainability.</b></h1>
+            <div class="petition-container">
+
+
+                <div class="part">
+                    <img src="https://assets.change.org/photos/7/fk/mk/ytfkMKVSWgJKCOO-800x450-noPad.jpg?1555536038"
+                        alt="Petition Image" class="petition-image">
+                    <p class="started-by">Started by <u><b><a href="">Abbey Grace</a></b></u></p><br>
+                    <p class="petition-details">
+                    <h2><b>Why this petition matters?</b></h2>
+                    Climate Change has been a large portion of the world’s news recently, as is rightly so. If you have
+                    not already, I would strongly encourage each member of Cardiff University to watch the Our Planet
+                    documentary constructed by Sir David Attenborough and his team. Animals such as seals, elephants,
+                    tigers, orangutans and so many more are losing their homes, their loved ones and their chance to
+                    exist.<br><br>
+
+                    The show is created beautifully and casts an important light onto the very real impacts that our
+                    world is suffering from, which WE have caused. Please, show us your commitment to supporting the
+                    wellbeing, education and inspiration of your students by taking drastic action against Climate
+                    Change IN TIME.
+                    <br><br>
+                    </p>
+                </div>
+
+                <div class="part">
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 45%;"></div>
+                    </div>
+                    <div class="goal-container">
+                        <div>
+                            <p class="goal">2143</p>
+                            <p class="signatures">Signatures</p>
+                        </div>
+                        <div>
+                            <p class="goal" style="text-align: right;">5,000</p>
+                            <p class="next-goal">Next Goal</p>
+                        </div>
+                    </div>
+                    <form class="petition-form" action="submit-petition.php" method="post">
+                        <input type="text" name="first_name" placeholder="First name" required>
+                        <input type="text" name="last_name" placeholder="Last name" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <input type="text" name="location" placeholder="Location" required>
+                        <br> <br>
+                        <div class="check">
+                            <input type="checkbox" name="display_name" id="display_name" class="checkbox" checked>
+                            <label for="display_name">Display my comment on this petition</label>
+                        </div>
+                        <button type="submit">Sign this petition</button>
+                    </form>
+                </div>
+            </div>
+            <div class="lower-content">
+                <p>
+                    Join Bristol University as they take lead, see here: <a href="https://www.bbc.com/news/uk-england-bristol-47962554">Click here</a>
+                </p>
+                <div class="qr">
+                    <img src="data:image/png;base64,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" alt="qr-code">
+                    <p><br><br> Share this petition in person or use the QR code for your own material.</p>
+                </div>
+            </div>
+        </div>
+        <script src="app.js"></script>
+    </div>
+    <a class="nav-link" href="/petition1">Petition1</a>
+	<a class="nav-link" href="/petition3">Petition3</a>
+</body>
+
+</html>

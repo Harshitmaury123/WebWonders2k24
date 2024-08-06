@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Merienda:wght@500&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #f5f5f5;
+    margin: 0;
+    word-spacing: 3px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.inner-container {
+    margin: 0 auto;
+    width: 60vw;
+    padding: 20px;
+
+}
+
+.check {
+    display: flex;
+}
+
+input#display_name.checkbox {
+    width: 15px;
+    margin: 0 20px;
+}
+
+.outer-container {
+    background-color: #fff;
+    padding: 20px 20px 50px 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+.lower-content {
+    padding: 20px;
+}
+
+.petition-container {
+    display: flex;
+}
+
+.part {
+    padding: 20px;
+    flex: 1;
+}
+
+.part:first-child {
+    margin-right: 20px;
+}
+
+h1 {
+    font: 32px "noto-sans";
+    margin-bottom: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.petition-image {
+
+    width: 500px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.goal-container {
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+}
+
+.goal {
+    font-weight: bolder;
+    color: green;
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+.signatures {
+    margin: 0;
+}
+
+.next-goal {
+    margin: 0;
+}
+
+.progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress {
+    height: 10px;
+    background-color: #4caf50;
+}
+
+.started-by {
+    margin: 10px 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.petition-details {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+.petition-form input,
+.petition-form button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.petition-form button {
+    background-color: #ff3b3b;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.petition-form button:hover {
+    background-color: #e53935;
+}
+
+.petition-form label {
+    display: block;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.qr{
+    display:flex;
+}
+.qr img{
+    height: 100px;
+    width: 100px;
+    margin:0px 20px 0px 0px;
+}

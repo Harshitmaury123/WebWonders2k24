@@ -188,7 +188,19 @@ app.get("/result",(req,res)=>{
 
 app.get("/newsapi",(req,res)=>{
     res.render("./blogs/news.ejs");
-})
+});
+app.get("/petition1",(req,res)=>{
+    res.render("./petitions/petition1/index.ejs");
+}
+);
+app.get("/petition2",(req,res)=>{
+    res.render("./petitions/petition2/index.ejs");
+}
+);
+app.get("/petition3",(req,res)=>{
+    res.render("./petitions/petition3/index.ejs");
+}
+);
 
 app.all("*",(req,res,next)=>{
     next(new ExpressError(404,"Route not found!"));

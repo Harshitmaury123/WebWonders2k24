@@ -84,7 +84,7 @@ video{
 #scroller{
     /* background-color: red; */
     white-space:nowrap;
-    overflow: auto;
+    overflow: hidden;
     position: relative;
     z-index: 10;
     overflow-y: hidden;
@@ -99,7 +99,7 @@ video{
     display: inline-block;
     white-space: nowrap;
     animation-name: scroll ;
-    animation-duration:30s ;
+    animation-duration:20s ;
     animation-timing-function:linear ;
     animation-name: scroll ;
     animation-iteration-count: infinite;

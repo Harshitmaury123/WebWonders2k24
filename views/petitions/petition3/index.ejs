@@ -1,0 +1,231 @@
+<% layout("/layouts/boilerplate.ejs")%>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Merienda:wght@500&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #f5f5f5;
+    margin: 0;
+    word-spacing: 3px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.inner-container {
+    margin: 0 auto;
+    width: 60vw;
+    padding: 20px;
+
+}
+
+.check {
+    display: flex;
+}
+
+input#display_name.checkbox {
+    width: 15px;
+    margin: 0 20px;
+}
+
+.outer-container {
+    background-color: #fff;
+    padding: 20px 20px 50px 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+.lower-content {
+    padding: 20px;
+}
+
+.petition-container {
+    display: flex;
+}
+
+.part {
+    padding: 20px;
+    flex: 1;
+}
+
+.part:first-child {
+    margin-right: 20px;
+}
+
+h1 {
+    font: 32px "noto-sans";
+    margin-bottom: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.petition-image {
+
+    width: 500px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.goal-container {
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+}
+
+.goal {
+    font-weight: bolder;
+    color: green;
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+.signatures {
+    margin: 0;
+}
+
+.next-goal {
+    margin: 0;
+}
+
+.progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress {
+    height: 10px;
+    background-color: #4caf50;
+}
+
+.started-by {
+    margin: 10px 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.petition-details {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+.petition-form input,
+.petition-form button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.petition-form button {
+    background-color: #ff3b3b;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.petition-form button:hover {
+    background-color: #e53935;
+}
+
+.petition-form label {
+    display: block;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.qr{
+    display:flex;
+}
+.qr img{
+    height: 100px;
+    width: 100px;
+    margin:0px 20px 0px 0px;
+}
+</style>
+    <div class="outer-container">
+        <div class="inner-container">
+            <h1><b>Sustainability is Our Responsibility.</b></h1>
+            <div class="petition-container">
+
+
+                <div class="part">
+                    <img src="https://assets.change.org/photos/9/ua/rp/DeUARpwaLGJmDtD-800x450-noPad.jpg?1621581926"
+                        alt="Petition Image" class="petition-image">
+                    <p class="started-by">Started by <u><b><a href="">Navya Goel</a></b></u></p><br>
+                    <p class="petition-details">
+                    <h2><b>Why this petition matters?</b></h2>
+                    <p>STOP USING PLASTICS!</p>
+                    <p>SAY NO TO PLASTICS!</p>
+                    <p>PLASTICS ARE BAD FOR ENVIRONMENT!</p>
+
+                    Well, these are some of the common statements and slogans that we hear very often these days. And we are aware that how bad plastics are for the environment. But actually is this the fault of plastics or humans? Since we are the ones which create plastic waste by wrongly disposing them in the environment<br><br>
+
+                    Most of us know about 3R's, 4R's but how many of us actually use even one of these R's? The answer is that only a few countable people are doing their bits to protect the environment. 
+                    </p>
+                </div>
+
+                <div class="part">
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 45%;"></div>
+                    </div>
+                    <div class="goal-container">
+                        <div>
+                            <p class="goal">2143</p>
+                            <p class="signatures">Signatures</p>
+                        </div>
+                        <div>
+                            <p class="goal" style="text-align: right;">5,000</p>
+                            <p class="next-goal">Next Goal</p>
+                        </div>
+                    </div>
+                    <form class="petition-form" action="submit-petition.php" method="post">
+                        <input type="text" name="first_name" placeholder="First name" required>
+                        <input type="text" name="last_name" placeholder="Last name" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <input type="text" name="location" placeholder="Location" required>
+                        <br> <br>
+                        <div class="check">
+                            <input type="checkbox" name="display_name" id="display_name" class="checkbox" checked>
+                            <label for="display_name">Display my comment on this petition</label>
+                        </div>
+                        <button type="submit">Sign this petition</button>
+                    </form>
+                </div>
+            </div>
+            <div class="lower-content">
+                <p>
+
+					As my New Year resolution, I thought to put in my best efforts to use sustainable products but I saw SUP (single use plastics) is everywhere in my life. Even if I try, I cannot stop SUP entering my house. So I thought to tweak my resoluton a bit - instead of stopping SUP, I thought to make it less polluting for the environment by strongly following 4R's.
+					<br><br>
+					Practicing this sustainable concept since last few months. I am segregating my house waste as "paper/board products", "rigid plastics", "milk pouches", "laminates, candy wrappers and other flexibles", "glass and tin" and "wet food waste". <br><br>
+
+					As a student I sometimes feel helpless. Even though I am doing my best to segregate the waste but I dont find the ways to dispose them correctly. There is no proper channels, contacts of recyclers available. What max I do is call a nearby 'Kabadiwala' which is a recycler for me and sell all the waste in segregated forms to him.
+					<br><br>
+					I want out community, friends, people, elders, government to help me in making the environment a better place to live. 
+					<br><br>
+					So either we use only sustainable products which looks difficult or we work towards making our waste sustainable.
+                    <div class="qr">
+                        <img src="data:image/png;base64,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" alt="qr-code">
+                        <p><br><br> Share this petition in person or use the QR code for your own material.</p>
+                    </div>
+                </p>
+            </div>
+        </div>
+        <script src="app.js"></script>
+    </div>
+    <a class="nav-link" href="/petition2">Petition1</a>
+	<a class="nav-link" href="/petition3">Petition2</a>
+</body>
+
+</html>
