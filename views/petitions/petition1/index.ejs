@@ -198,7 +198,7 @@ h1 {
 					</div>
 					<div class="goal-container">
 						<div>
-							<p class="goal">3,743</p>
+							<p class="goal" id="curr">3743</p>
 							<p class="signatures">Signatures</p>
 						</div>
 						<div>
@@ -206,7 +206,7 @@ h1 {
 							<p class="next-goal">Next Goal</p>
 						</div>
 					</div>
-					<form class="petition-form" action="submit-petition.php" method="post">
+					<form class="petition-form" action="#" >
 						<input type="text" name="first_name" placeholder="First name" required>
 						<input type="text" name="last_name" placeholder="Last name" required>
 						<input type="email" name="email" placeholder="Email" required>
@@ -216,7 +216,7 @@ h1 {
 							<input type="checkbox" name="display_name" id="display_name" class="checkbox" checked>
 							<label for="display_name">Display my comment on this petition</label>
 						</div>
-						<button type="submit">Sign this petition</button>
+						<button type="submit" id="btn">Sign this petition</button>
 					</form>
 				</div>
 			</div>
@@ -283,11 +283,30 @@ h1 {
                 </div>
 			</div>
 		</div>
-		<script src="app.js"></script>
+		<script >
+			document.addEventListener("DOMContentLoaded", () => {
+  let currSign = document.getElementById("curr").innerText;
+  console.log(currSign);
+  if (localStorage.getItem("p1") === null) {
+    localStorage.setItem("p1", currSign);
+  }
+  document.getElementById("curr").innerText = localStorage.getItem("p1");
+});
+
+document.getElementById("btn").addEventListener("click", (e) => {
+  e.preventDefault();
+  let prev = parseInt(localStorage.getItem("p1"), 10); // Ensure the value is treated as a number
+  prev++;
+  localStorage.setItem("p1", prev);
+  document.getElementById("curr").innerText = prev;
+    location.reload();
+
+});
+
+		</script>
+		<a style="color:rgb(92, 213, 84) !important;margin-left:88px;margin-bottom:10px;" class="nav-link" href="/petition2">Petition2</a>
+		<a style="color:rgb(92, 213, 84) !important;margin-left:88px;margin-bottom:10px;" class="nav-link" href="/petition3">Petition3</a>
 	</div>
-	<a class="nav-link" href="/petition2">Petition2</a>
-	<br>
-	<a class="nav-link" href="/petition3">Petition3</a>
 </body>
 
 </html>

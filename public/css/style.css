@@ -125,7 +125,7 @@ color:#2aeb10e8 !important;
     overflow:hidden;
     width:320px !important;
     height:400px !important;
-    border:8px solid white;
+    border:1px solid white;
     position:relative;
 }
 .card-opt{
@@ -133,9 +133,11 @@ color:#2aeb10e8 !important;
     margin-bottom: 2rem;
     /* overflow:hidden; */
     width:500px !important;
-    height:600px !important;
-    border:1.5px solid white;
+    height:fit-content !important;
+    border:1px solid white;
     position:relative;
+    color:white;
+    box-shadow: 10px 16px 16px rgba(158, 226, 122, 0.2);
 }
 .listing-card{
     border:none !important;

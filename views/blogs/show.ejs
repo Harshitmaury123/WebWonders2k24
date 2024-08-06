@@ -1,24 +1,41 @@
 <% layout("/layouts/boilerplate.ejs")%>
 <video autoplay loop muted src="https://cdn.pixabay.com/video/2021/10/05/90877-629483574_tiny.mp4"></video>
 <div class="row">
-<div class="col-8 offset-2">
-     <h2 style="color:white !important;">Blog Details:</h2>
-     </div>
-     <div class="card-opt col-6 offset-3">
-      <img src="<%=blog.image%>" class="card-img-top" alt="blog_image">
-      <div class="card-body-opt">
-        <p class="card-sub-title">
-         <li class="card-title"><%=blog.title%></li>
-         <li class="card-info"><%=blog.blogs%></li>
-         <li class="card-title"><%=blog.author%></li>
-        </p>
-      </div>
-     </div>
-     <br>
-     <div class="btns">
-      <a class="col-1 offset-3 btn btn-dark" href="/blogs/<%=blog._id%>/edit">Edit</a>
-      <form method="POST" action="/blogs/<%=blog._id%>?_method=DELETE">
-         <button class="btn btn-dark offset-5 del-btn" >Delete</button>
-      </form>
-      </div>
-     </div>
+  <div class="col-8 offset-2">
+    <h2 style="color:white !important;">Blog Details:</h2>
+  </div>
+  <div class="card-opt col-6 offset-3">
+    <img style="width:100%;height:70%" src="<%= blog.image %>" alt="blog_image">
+    <div>
+      <ul class="white-text">
+        <li class="list"><%= blog.title %></li>
+        <li class="list"><%= blog.blogs %></li>
+        <li class="list"><%= blog.author %></li>
+      </ul>
+    </div>
+  </div>
+  <br>
+  <div class="btns">
+    <a class="col-1 offset-3 btn btn-dark" href="/blogs/<%= blog._id %>/edit">Edit</a>
+    <form method="POST" action="/blogs/<%= blog._id %>?_method=DELETE">
+      <button class="btn btn-dark offset-5 del-btn">Delete</button>
+    </form>
+  </div>
+</div>
+
+<style>
+  .white-text {
+    color: white !important;
+  }
+  .list{
+    margin:10px;
+    margin-left:-25px;
+  }
+  .card-opt {
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .card-opt:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+</style>
